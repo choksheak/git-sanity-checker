@@ -40,9 +40,13 @@ Please see the config file [git-sanity-checker.cfg](https://github.com/choksheak
 1. Copy git-sanity-checker.exe and git-sanity-checker.cfg to some folder on your computer.
 2. Add this folder to the search path (PATH environment variable).
 3. Configure git to run this script. Under .gitconfig "[alias]" section, add the following lines:
+
     check = !git-sanity-checker
+    
     c = !git-sanity-checker
+    
     s = "!f() { git status; git-sanity-checker; }; f"
+
 4. Anywhere within any git repo, run "git check" or "git c" or "git s"
 
 ## Checking Any File
