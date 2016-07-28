@@ -11,7 +11,7 @@ Git sanity checker is a small utility that can be embedded into the Git workflow
 
 ## List of Git Commands Used
 
-Get list of files that are modified and cached in Git.
+(REMOVED) Get list of files that are modified and cached in Git.
 
     git diff --name-only --cached
 
