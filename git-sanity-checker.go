@@ -650,20 +650,16 @@ func getListOfFilesFromArguments() []string {
 func getListOfFilesFromGit() []string {
 	gotoGitRepoRootDir()
 
-	// Get list of modified and staged files from git.
-	diff1 := execAndGetOutput("git", []string{"diff", "--name-only", "--cached"})
-
 	// Get list of modified but unstaged files from git.
-	diff2 := execAndGetOutput("git", []string{"diff", "--name-only"})
+	diff1 := execAndGetOutput("git", []string{"diff", "--name-only"})
 
 	// Get list of new files from git.
-	diff3 := execAndGetOutput("git", []string{"ls-files", "--others", "--exclude-standard"})
+	diff2 := execAndGetOutput("git", []string{"ls-files", "--others", "--exclude-standard"})
 
 	array1 := convertStringToLines(diff1, true)
 	array2 := convertStringToLines(diff2, true)
-	array3 := convertStringToLines(diff3, true)
 
-	return append(append(array1, array2...), array3...)
+	return append(array1, array2...)
 }
 
 func gotoGitRepoRootDir() {
